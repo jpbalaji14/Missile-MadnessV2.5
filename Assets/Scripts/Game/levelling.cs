@@ -38,7 +38,7 @@ public class levelling : MonoBehaviour
     public void LevelUp()
     {
         levelnum++;
-        GetComponent<RagdollCollision>().Force += 2000;
+        GetComponent<RagdollCollision>().Force += 1500;
 
         //ui
         
@@ -66,7 +66,7 @@ public class levelling : MonoBehaviour
     public void levelDown()
     {
         levelnum--;
-        GetComponent<RagdollCollision>().Force -= 2000;
+        GetComponent<RagdollCollision>().Force -= 1500;
 
         //ui
        

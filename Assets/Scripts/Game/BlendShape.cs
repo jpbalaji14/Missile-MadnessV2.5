@@ -26,6 +26,7 @@ public class BlendShape : MonoBehaviour
     }
     private void Update()
     {
+
         RocketUpgrade();
     }
 

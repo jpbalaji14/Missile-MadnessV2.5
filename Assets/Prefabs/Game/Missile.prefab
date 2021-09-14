@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8823646942186781410}
   - component: {fileID: 3494254413113565938}
   - component: {fileID: 3494254413113565941}
-  - component: {fileID: 3494254413113565940}
   - component: {fileID: 3494254413113565943}
   - component: {fileID: 3494254413113565928}
   m_Layer: 0
@@ -148,30 +147,6 @@ MonoBehaviour:
   decSpeed: 815
   sidespeed: 1
   rotspeed: -60
---- !u!114 &3494254413113565940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377353916958154657}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91aca28df0969ac40acb0b2981682e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileList:
-  - {fileID: 18587404739589759, guid: 6462e06ba25faaa44aa19ac1333c9dff, type: 3}
-  - {fileID: 2811380190348368531, guid: 9fc2c89765335f84eb9b52048a6db4b4, type: 3}
-  - {fileID: 2014398778510411497, guid: 625fe83254054774b9c429a0011e8526, type: 3}
-  - {fileID: 5376555251163631961, guid: c9d4c9f5d7c0e5646bbb9bb64cbe80f9, type: 3}
-  - {fileID: 7695723142662717009, guid: ef862bc952ee9784093bfef580837da6, type: 3}
-  - {fileID: 6447369139699620987, guid: 4aba7576a6b3d544f83c9835fe9e3e1e, type: 3}
-  player: {fileID: 4377353916958154657}
-  tileLength: 6
-  enemy: {fileID: 0}
-  Prefab: {fileID: 18587404739589759, guid: 6462e06ba25faaa44aa19ac1333c9dff, type: 3}
-  numPoints: 40
 --- !u!114 &3494254413113565943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +164,9 @@ MonoBehaviour:
   rotspeed: -60
   object1: {fileID: 4377353916958154657}
   object2: {fileID: 0}
+  tank1: {fileID: 0}
+  tank2: {fileID: 0}
+  MissCam: {fileID: 0}
 --- !u!114 &3494254413113565928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  Prefab: {fileID: 18587404739589759, guid: 6462e06ba25faaa44aa19ac1333c9dff, type: 3}
+  player: {fileID: 0}
+  platform: []
   numPoints: 30

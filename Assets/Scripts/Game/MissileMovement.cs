@@ -17,6 +17,12 @@ public class MissileMovement : MonoBehaviour
     public GameObject MissCam;
     //public GameObject Boomeffect;
     //public GameObject DestPart;
+    //public GameObject Missile;
+
+
+
+    Touch thetouh;
+    Vector3 touchstartpos, touchendpos;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,21 +30,27 @@ public class MissileMovement : MonoBehaviour
         //rot
         rotVel = new Vector3(0, rotspeed, 0);
     }
-
-    void FixedUpdate()
-	{
-		Vector3 direction = object1.transform.position - object2.transform.position;
-
-		// Normalize resultant vector to unit Vector.
-		direction = -direction.normalized;
-
-		// Move in the direction of the direction vector every frame.
-		object1.transform.position += direction * Time.deltaTime * speed;
-
-        moving();
+     void Update()
+    {
+        
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1f, 1f), transform.position.y, transform.position.z);
-	}
+        //Time.timeScale = 0.1f;
 
+         moving();
+
+
+    }
+    void FixedUpdate()
+    {
+        Vector3 direction = object1.transform.position - object2.transform.position;
+
+        // Normalize resultant vector to unit Vector.
+        direction = -direction.normalized;
+
+        // Move in the direction of the direction vector every frame.
+        object1.transform.position += direction * Time.deltaTime * speed;
+
+    }
     void moving()
     {
 
@@ -47,18 +59,24 @@ public class MissileMovement : MonoBehaviour
             Touch touch = Input.GetTouch(0);       //If Touched, The player is moved Left and Right.
             if (touch.phase == TouchPhase.Moved)
             {
-                rb.AddForce(Vector3.right * touch.deltaPosition.x * sidespeed /** Time.deltaTime*/);
-                if (touch.deltaPosition.x > 0.5)
+                rb.AddForce(Vector3.right * touch.deltaPosition.x * sidespeed * Time.deltaTime);
+                if (touch.deltaPosition.x > 0.005)
                 {
                     StartCoroutine("Rot");
                     StopCoroutine("RotLeft");
                 }
-                else if (touch.deltaPosition.x < -0.5)
+                else if (touch.deltaPosition.x < -0.005)
                 {
                     StartCoroutine("RotLeft");
                     StopCoroutine("Rot");
-                }
+                }  
             }
+            else if (thetouh.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Ended)
+            {
+                Debug.Log("station");
+                rb.AddForce(Vector3.zero * touch.deltaPosition.x * sidespeed * Time.deltaTime);
+            }
+
         }
     }
 
@@ -66,33 +84,28 @@ public class MissileMovement : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.004f);
             Quaternion deltaRotation = Quaternion.Euler(rotVel * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.004f);
         }
     }
     IEnumerator RotLeft()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.004f);
             Quaternion deltaRotation = Quaternion.Euler(-rotVel * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.004f);
         }
     }
 
-
-
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (collision.gameObject.tag == "rock")
+        if (collision.gameObject.tag == "ChunkObstacle")
         {
-            speed = 20f;
-            // Missile.SetActive(false);
-            //Invoke(nameof(destroyMissile), 0.8f);
-
+            speed = 2f;
         }
 
         if (collision.gameObject.tag == "Enemy")
@@ -106,22 +119,11 @@ public class MissileMovement : MonoBehaviour
                 // Invoke(nameof(destroyMissile), 1f);
                 //Destroy(this.gameObject, 0.25f);
                 Destroy(MissCam.GetComponent<CamController>());
-
-
-                
-               
             }
             if (level.levelnum == 1)
             {
                 this.gameObject.SetActive(false);
             }
         }
-
-        //void destroyMissile()
-        //{
-        //    var expparticle = Instantiate(Boomeffect, DestPart.transform.position, Quaternion.identity);
-        //    Destroy(expparticle, 1f);
-        //    Destroy(this.gameObject, 0.1f);
-        //}
     }
 }

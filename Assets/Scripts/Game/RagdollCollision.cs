@@ -16,7 +16,7 @@ public class RagdollCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Force = Mathf.Clamp(Force, 1000, 10700);
+        Force = Mathf.Clamp(Force, 500, 12500);
     }
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
