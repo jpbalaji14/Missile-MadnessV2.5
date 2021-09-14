@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissileMovement : MonoBehaviour
 {  
-	public float speed=35f;
+	public float speed=28f;
     public float sidespeed=1f;
     [SerializeField] float rotspeed = -60f;
     public GameObject object1;
@@ -60,12 +60,12 @@ public class MissileMovement : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 rb.AddForce(Vector3.right * touch.deltaPosition.x * sidespeed * Time.deltaTime);
-                if (touch.deltaPosition.x > 0.005)
+                if (touch.deltaPosition.x > 0.0005)
                 {
                     StartCoroutine("Rot");
                     StopCoroutine("RotLeft");
                 }
-                else if (touch.deltaPosition.x < -0.005)
+                else if (touch.deltaPosition.x < -0.0005)
                 {
                     StartCoroutine("RotLeft");
                     StopCoroutine("Rot");
@@ -84,26 +84,26 @@ public class MissileMovement : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.004f);
+            yield return new WaitForSeconds(0.05f);
             Quaternion deltaRotation = Quaternion.Euler(rotVel * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
-            yield return new WaitForSeconds(0.004f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
     IEnumerator RotLeft()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.004f);
+            yield return new WaitForSeconds(0.05f);
             Quaternion deltaRotation = Quaternion.Euler(-rotVel * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
-            yield return new WaitForSeconds(0.004f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (collision.gameObject.tag == "ChunkObstacle")
+        if (collision.gameObject.tag == "rock")
         {
             speed = 2f;
         }

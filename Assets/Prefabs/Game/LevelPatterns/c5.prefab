@@ -129,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0537144, y: 1.9856625, z: 1}
+  m_Center: {x: 0.018482558, y: 0.8733328, z: 0}
 --- !u!95 &2448281141108895978
 Animator:
   serializedVersion: 3
@@ -161,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0271968, y: 1.905922, z: 1}
+  m_Center: {x: -0.0135977445, y: 0.91320187, z: 0}
 --- !u!95 &2695447939164406680
 Animator:
   serializedVersion: 3
@@ -193,8 +193,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0433459, y: 1.9202468, z: 1}
+  m_Center: {x: -0.02167077, y: 0.9060392, z: 0}
 --- !u!95 &5257069480509824674
 Animator:
   serializedVersion: 3
@@ -225,8 +225,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0817403, y: 1.8848697, z: 1}
+  m_Center: {x: -0.016253231, y: 0.92372805, z: 0}
 --- !u!95 &2282893972265116332
 Animator:
   serializedVersion: 3
@@ -257,8 +257,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0880795, y: 1.8746675, z: 1}
+  m_Center: {x: -0.04403909, y: 0.9288286, z: 0}
 --- !u!95 &7486608923134353537
 Animator:
   serializedVersion: 3
@@ -289,8 +289,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2601203, y: 2.3661652, z: 1}
-  m_Center: {x: -0.13006002, y: 0.6830832, z: 0}
+  m_Size: {x: 1.0169883, y: 1.9116064, z: 1}
+  m_Center: {x: -0.008493924, y: 0.9103614, z: 0}
 --- !u!95 &8764682152324016887
 Animator:
   serializedVersion: 3
@@ -525,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea8bb71addef6f4fb2fd15bb4cdfa7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.22
+      value: -0.231
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea8bb71addef6f4fb2fd15bb4cdfa7c, type: 3}
       propertyPath: m_LocalPosition.y

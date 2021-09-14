@@ -15,14 +15,22 @@ public class Shakycam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startpos = cam.transform.localPosition;
         initialDuration = duration;
+        startpos = cam.transform.localPosition;
+        // StartCoroutine(startFunction());
     }
-
+    //IEnumerator startFunction()
+    //{
+    //    yield return new WaitForSeconds(3.5f);
+    //    cam = Camera.main;
+       
+    //}
     // Update is called once per frame
     void Update()
     {
-        if(shouldshake)
+        
+       
+        if (shouldshake)
         {
             if(duration>0)
             {
@@ -40,10 +48,15 @@ public class Shakycam : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag =="Player")
+        if(collision.gameObject.tag =="rock" )
         {
             shouldshake = true;
             Destroy(gameObject.GetComponent<Shakycam>(), 0.2f);
         }   
+        if(collision.gameObject.tag == "Enemy")
+        {
+            shouldshake = true;
+            Destroy(gameObject.GetComponent<Shakycam>(), 0.2f);
+        }
     }
 }
