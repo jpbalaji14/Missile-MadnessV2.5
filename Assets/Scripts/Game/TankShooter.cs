@@ -13,6 +13,7 @@ public class TankShooter : MonoBehaviour
     [SerializeField] GameObject TankBulletPrefab;
     [SerializeField] float ShootTiming = 0.75f;
     [SerializeField] float BulletMoveSpeed = 100f;
+    [SerializeField] GameObject ShootParticle;
     bool CanShoot;
     //Range calculation
     [SerializeField] float MaxDistance=215f;
@@ -52,11 +53,18 @@ public class TankShooter : MonoBehaviour
         {
             Destroy(this);
         }
+        else if(distance<=MinDistance)
+        {
+            anim.SetBool("shoot", false);
+        }
+
     }
     private void ShootThePlayer()
     {
-        GameObject TankShooter = Instantiate(TankBulletPrefab, transform.position, transform.rotation);
-        TankShooter.GetComponent<Rigidbody>().velocity = BulletMoveSpeed * transform.forward;      
+        GameObject TankShooter = Instantiate(TankBulletPrefab, Obj1.transform.position, transform.rotation);
+        TankShooter.GetComponent<Rigidbody>().velocity = BulletMoveSpeed * transform.forward;
+      GameObject Particle= Instantiate(ShootParticle, Obj1.transform.position, transform.rotation);
+        Destroy(Particle.gameObject, 0.5f);
     }
 
     void CanShootAgain()

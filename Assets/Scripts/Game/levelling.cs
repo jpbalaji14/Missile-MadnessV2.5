@@ -119,7 +119,9 @@ public class levelling : MonoBehaviour
         {
             score+=10;
            var storeparticle= Instantiate(coinCollectParticle, other.transform.position, Quaternion.identity);
-            Destroy(storeparticle, 0.1f);
+            Debug.Log("particle" + storeparticle);
+            Destroy(storeparticle, 1f);
+            
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag=="TankBullet")
